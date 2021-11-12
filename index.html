@@ -5,9 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <title>TIC TAC TOE GAME</title>
 </head>
 <body>
-  
+  <header>
+    <h1>TIC-TAC-TOE GAME</h1>
+  </header>
+  <main>
+    <form id="form">
+      <label for="player1">Player One</label>
+      <input type="text" class="player1">
+      <label for="player2">Player Two</label>
+      <input type="text" class="player2">
+      <input type="button" value="Start Game">
+    </form>
+    <div class="score">
+      <div class="player1_score"></div>
+      <div class="player1_score"></div>
+    </div>
+    <table class="none" id="game-board">
+      <tr>
+        <td class="cell" id="0"></td>
+        <td class="cell" id="1"></td>
+        <td class="cell" id="2"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="3"></td>
+        <td class="cell" id="4"></td>
+        <td class="cell" id="5"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="6"></td>
+        <td class="cell" id="7"></td>
+        <td class="cell" id="8"></td>
+      </tr>
+    </table>
+    <div class="game-info">
+      <p class="game-participant"></p>
+      <button id="restart" class="none">Restart Games</button>
+    </div>
+  </main>
 </body>
 </html>
