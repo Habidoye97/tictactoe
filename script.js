@@ -7,11 +7,18 @@ const Game = (() => {
   const playerOneScore = document.querySelector('.player1_score');
   const playerTwoScore = document.querySelector('.player2_score');
   
-
-  const startGame = () => {
+  const firstPlayerName = () => {
     const firstPlayer = playerOne.value;
+    return firstPlayer
+  }
+
+  const secondPlayerName = () => {
     const secondPlayer = playerTwo.value;
-    if (firstPlayer === "" && secondPlayer === "") {
+    return secondPlayer
+  }
+  const startGame = () => {
+    
+    if (firstPlayerName() === "" || secondPlayerName() === "") {
       alert("Please input Players names")
       return
     }
@@ -19,11 +26,10 @@ const Game = (() => {
       display.classList.remove("none")
     });
     form.classList.add("none")
-    playerOneScore.textContent = firstPlayer.toUpperCase() + " Score:" 
-    playerTwoScore.textContent = secondPlayer.toUpperCase() + " Score:"
-    displayController.setMessageElement(`Hello players, ${firstPlayer}'s will play with X and ${secondPlayer} will play with O`)
-    console.log(firstPlayer)
-    console.log(secondPlayer)
+    playerOneScore.textContent = firstPlayerName().toUpperCase() + " Score:" 
+    playerTwoScore.textContent = secondPlayerName().toUpperCase() + " Score:"
+    displayController.setMessageElement(`Hello players, ${firstPlayerName()}'s will play with X and ${secondPlayerName()} will play with O`)
+    
     form.reset()
   }
 
