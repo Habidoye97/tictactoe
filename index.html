@@ -20,11 +20,11 @@
       <input type="text" class="player1">
       <label for="player2">Player Two</label>
       <input type="text" class="player2">
-      <input type="button" value="Start Game">
+      <input type="button" value="Start Game" id="startgame">
     </form>
-    <div class="score">
+    <div class="score none">
       <div class="player1_score"></div>
-      <div class="player1_score"></div>
+      <div class="player2_score"></div>
     </div>
     <table class="none" id="game-board">
       <tr>
@@ -43,7 +43,7 @@
         <td class="cell" id="8" data-index="8"></td>
       </tr>
     </table>
-    <div class="game-message">
+    <div class="game-message" class="none">
       <p class="game-message" id="message"></p>
       <button id="restart" class="none">Restart Games</button>
     </div>

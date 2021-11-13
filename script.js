@@ -1,3 +1,46 @@
+const Game = (() => {
+
+  const form = document.getElementById('form');
+  const playerOne = document.querySelector('.player1');
+  const playerTwo = document.querySelector('.player2');
+  const elementDisplay = document.querySelectorAll('.none');
+  const playerOneScore = document.querySelector('.player1_score');
+  const playerTwoScore = document.querySelector('.player2_score');
+  
+
+  const startGame = () => {
+    const firstPlayer = playerOne.value;
+    const secondPlayer = playerTwo.value;
+    if (firstPlayer === "" && secondPlayer === "") {
+      alert("Please input Players names")
+      return
+    }
+    elementDisplay.forEach((display) => {
+      display.classList.remove("none")
+    });
+    form.classList.add("none")
+    playerOneScore.textContent = firstPlayer.toUpperCase() + " Score:" 
+    playerTwoScore.textContent = secondPlayer.toUpperCase() + " Score:"
+    displayController.setMessageElement(`Hello players, ${firstPlayer}'s will play with X and ${secondPlayer} will play with O`)
+    console.log(firstPlayer)
+    console.log(secondPlayer)
+    form.reset()
+  }
+
+  const playerScore = () => {
+    
+  }
+  
+  const getPlayersone =() => {
+    return 
+  }
+  
+  const startGamebtn = document.getElementById('startgame');
+  startGamebtn.addEventListener('click', startGame)
+  return {startGame}
+  
+})()
+
 const Player = (sign) => {
   this.sign = sign;
 
