@@ -1,4 +1,4 @@
-const Game = (() => {
+const game = (() => {
 
   const form = document.getElementById('form');
   const playerOne = document.querySelector('.player1');
@@ -16,8 +16,16 @@ const Game = (() => {
     const secondPlayer = playerTwo.value;
     return secondPlayer
   }
-  const startGame = () => {
+
+  const firstPlayer = (scoredetails) => {
+    playerOneScore.textContent = scoredetails;
     
+  }
+
+  const secondPlayer = (scoredetails) => {
+    playerTwoScore.textContent = scoredetails;
+  }
+  const startGame = () => {
     if (firstPlayerName() === "" || secondPlayerName() === "") {
       alert("Please input Players names")
       return
@@ -26,15 +34,16 @@ const Game = (() => {
       display.classList.remove("none")
     });
     form.classList.add("none")
-    playerOneScore.textContent = firstPlayerName().toUpperCase() + " Score:" 
-    playerTwoScore.textContent = secondPlayerName().toUpperCase() + " Score:"
-    displayController.setMessageElement(`Hello players, ${firstPlayerName()}'s will play with X and ${secondPlayerName()} will play with O`)
-    
-    form.reset()
+    firstPlayer(firstPlayerName().toUpperCase() + " Score: " + playerScore(0))
+    secondPlayer(secondPlayerName().toUpperCase() + " Score: " + playerScore(0))
+    displayController.setMessageElement(`Hello players, ${firstPlayerName().toUpperCase()} will play with X and ${secondPlayerName().toUpperCase()} will play with O`)
+    // form.reset()
   }
 
-  const playerScore = () => {
-    
+  const playerScore = (num) => {
+    let score = 0
+    score += num
+    return score
   }
   
   const getPlayersone =() => {
@@ -42,10 +51,11 @@ const Game = (() => {
   }
   
   const startGamebtn = document.getElementById('startgame');
-  startGamebtn.addEventListener('click', startGame)
-  return {startGame}
+  startGamebtn.addEventListener('click', startGame);
   
-})()
+  return {startGame, firstPlayer, secondPlayer, playerScore, firstPlayerName, secondPlayerName};
+  
+})();
 
 const Player = (sign) => {
   this.sign = sign;
@@ -82,7 +92,7 @@ const displayController = (() => {
   const cellElements = document.querySelectorAll(".cell");
   const messageElement = document.getElementById('message');
   const restartbtn = document.getElementById('restart');
-
+  let num = 1
   cellElements.forEach((cell) => 
     cell.addEventListener('click', (e) => {
       if (gameController.getIsOver() || e.target.textContent !== "") return;
@@ -112,10 +122,13 @@ const displayController = (() => {
     } else {
       setMessageElement(`Player ${winner} has won!`)
     }
+    
+
   };
 
   const setMessageElement = (message) => {
     messageElement.textContent = message;
+    
   };
 
   return {setResultMessage, setMessageElement}
@@ -126,12 +139,22 @@ const gameController = (() => {
   const playerO = Player("O");
   let round = 1;
   let isOver = false;
+  let firstnum = 0
+  let secondnum = 0
 
   const playRound = (cellIndex) => {
     gameBoard.setCell(cellIndex, getCurrentPlayerSign());
     if (checkWinner(cellIndex)) {
       displayController.setResultMessage(getCurrentPlayerSign());
       isOver = true;
+      if (getCurrentPlayerSign() === "X") {
+        firstnum++
+        game.firstPlayer(game.firstPlayerName().toUpperCase() + " Score: " + game.playerScore(firstnum))
+      }
+      if (getCurrentPlayerSign() === "O") {
+        secondnum++
+        game.secondPlayer(game.secondPlayerName().toUpperCase() + " Score: " + game.playerScore(secondnum))
+      }
       return
     }
     if (round === 9) {
