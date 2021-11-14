@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
+  background: chartreuse;
 }
 
 header {
@@ -45,6 +46,19 @@ table {
   font-size: 4rem;
 }
 
+form {
+  padding: 20px 0;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+form input {
+  font-size: inherit;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
 .score {
   display: flex;
   align-items: center;
@@ -60,4 +74,26 @@ table {
 }
 .none {
   display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  form input {
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .score {
+    flex-direction: column;
+  }
+  header {
+    height: fit-content;
+  }
 }
