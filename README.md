@@ -4,4 +4,5 @@
 In this game you and your friend will chose a position from the board and you will try to win before the other player do.
 
 ## Screenshot
-<img src="">
+<img src="images\tictac.png">
+<img src="images\tictactoe.png">
