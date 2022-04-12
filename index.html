@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <script src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>TIC TAC TOE GAME</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>TIC-TAC-TOE GAME</h1>
+  </header>
+  <main>
+    <form id="form">
+      <label for="player1">Player One</label>
+      <input type="text" class="player1">
+      <label for="player2">Player Two</label>
+      <input type="text" class="player2">
+      <input type="button" value="Start Game" id="startgame">
+    </form>
+    <div class="score none">
+      <div class="player1_score"></div>
+      <div class="player2_score"></div>
+    </div>
+    <table class="none" id="game-board">
+      <tr>
+        <td class="cell" id="0" data-index="0"></td>
+        <td class="cell" id="1" data-index="1"></td>
+        <td class="cell" id="2" data-index="2"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="3" data-index="3"></td>
+        <td class="cell" id="4" data-index="4"></td>
+        <td class="cell" id="5" data-index="5"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="6" data-index="6"></td>
+        <td class="cell" id="7" data-index="7"></td>
+        <td class="cell" id="8" data-index="8"></td>
+      </tr>
+    </table>
+    <div class="game-message" class="none">
+      <p class="game-message" id="message"></p>
+      <button id="restart" class="none">Restart Games</button>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>Copywrite © Habidoye</p>
+    <a href="https://github.com/Habidoye97" target="_blank">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  </footer>
+</body>
+</html>
